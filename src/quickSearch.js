@@ -64,7 +64,7 @@ $(function () {
             if (e.which == 13) {
                 e.preventDefault();
                 var value = $(this).val();
-                if (searchOption.type == 'text' || (searchOption.type == 'number' && !isNaN(value))) {
+                if ((searchOption.type == 'text' || (searchOption.type == 'number' && !isNaN(value))) && value != '') {
                     $(this).val("");
                     if (searchOption.newWindow) {
                         window.open(searchOption.url + value);
