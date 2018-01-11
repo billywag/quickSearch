@@ -3,7 +3,7 @@ $(function () {
         var settings = $.extend({
             searchOptions: [{
                 url: "http://google.com/search?q=",
-                placeholder: "Web Search",
+                placeholder: "Google Search",
                 type: "text",
                 newWindow: false
             }]
@@ -18,18 +18,30 @@ $(function () {
 
         window.currentOption.push({ key: id, value: 0 });
 
-        this.html(
-            '<div class="input-group input-group-sm">' +
-            '<input type="' + settings.searchOptions[0].type + '" id="' + inputId + '" placeholder="' + settings.searchOptions[0].placeholder + '" class="form-control" aria-describedby="' + id + '-sizing-addon" aria-label="..." />' +
+        var html = '<div class="input-group input-group-sm">' +
+            '<input type="' + settings.searchOptions[0].type + '" id="' + inputId + '" placeholder="' + settings.searchOptions[0].placeholder + '" class="form-control" aria-label="..." />' +
             '<div class="input-group-btn">' +
-            '<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + settings.searchOptions[0].placeholder + ' <span class="caret"></span></button>' +
-            '<ul class="dropdown-menu">' +
-            '<li><span class="changeOption">' + settings.searchOptions[0].placeholder + '</span></li>' +
-            '</ul>' +
-            '</div>' +
-            '</div>');
+            '<button type="button" class="btn dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></button>' +
+            '<ul class="dropdown-menu">';
 
-        $('.changeOption')
+        for (var i = 0; i < settings.searchOptions.length; i++) {
+            html += '<li><span class="changeOption" data-optionIndex="' + i + '">' + settings.searchOptions[i].placeholder + '</span></li>';
+        }
+
+        html += '</ul></div></div>';
+
+        this.html(html);
+
+        $('.changeOption').click(function () {
+            var optionIndex = $(this).attr('data-optionIndex');
+            for (var i = 0; i < window.currentOption.length; i++) {
+                if (window.currentOption[i].key == id) {
+                    window.currentOption[i].value = optionIndex;
+                }
+            }
+            $('#' + inputId).attr('placeholder', settings.searchOptions[optionIndex].placeholder);
+            $('#' + inputId).attr('type', settings.searchOptions[optionIndex].type);
+        });
 
         $("#" + inputId).keypress(function (e) {
             var currentOption = 0;
@@ -42,12 +54,13 @@ $(function () {
             var searchOption = settings.searchOptions[currentOption];
 
             if (e.which == 13) {
-                if (searchOption.type == 'text' || (searchOption.type == 'number' && !isNaN($(this).val()))) {
+                var value = $(this).val();
+                if (searchOption.type == 'text' || (searchOption.type == 'number' && !isNaN(value))) {
                     $(this).val("");
                     if (searchOption.newWindow) {
-                        window.open(searchOption.url + $(this).val());
+                        window.open(searchOption.url + value);
                     } else {
-                        window.location = searchOption.url + $(this).val();
+                        window.location = searchOption.url + value;
                     }
                 }
             }

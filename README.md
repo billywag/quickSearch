@@ -21,7 +21,6 @@ $('#myDivId').quickSearch({
         url: "http://google.com/search?q=",
         placeholder: "Web Search",
         type: "text",
-        icon: "glyphicon-search",
         newWindow: false
     }]
 });
@@ -35,5 +34,4 @@ These are the parameters required for the plugin:
     - placeholder: This will be the place holder for the input control
     - type: this will be the type for the input control
         - text/number
-    - icon: this is a glyphicon to be shown on the drop-down for selecting the search option
     - newWindow: determines if the control will launch a new window or not
