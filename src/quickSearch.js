@@ -21,8 +21,8 @@ $(function () {
         var html = '<div class="input-group input-group-sm">' +
             '<input type="' + settings.searchOptions[0].type + '" id="' + inputId + '" placeholder="' + settings.searchOptions[0].placeholder + '" class="form-control" aria-label="..." />' +
             '<div class="input-group-btn">' +
-            '<button type="button" class="btn dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></button>' +
-            '<ul class="dropdown-menu">';
+            '<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></button>' +
+            '<ul class="dropdown-menu dropdown-menu-right">';
 
         for (var i = 0; i < settings.searchOptions.length; i++) {
             html += '<li><span class="changeOption" data-optionIndex="' + i + '">' + settings.searchOptions[i].placeholder + '</span></li>';
@@ -41,6 +41,7 @@ $(function () {
             }
             $('#' + inputId).attr('placeholder', settings.searchOptions[optionIndex].placeholder);
             $('#' + inputId).attr('type', settings.searchOptions[optionIndex].type);
+            $('#' + inputId).val("");
         });
 
         $("#" + inputId).keypress(function (e) {
