@@ -5,7 +5,6 @@ $(function () {
                 url: "http://google.com/search?q=",
                 placeholder: "Web Search",
                 type: "text",
-                icon: "glyphicon-search",
                 newWindow: false
             }]
         }, options);
@@ -19,7 +18,18 @@ $(function () {
 
         window.currentOption.push({ key: id, value: 0 });
 
-        this.html('<div class="input-group input-group-sm"><input type="' + settings.searchOptions[0].type + '" id="' + inputId + '" placeholder="' + settings.searchOptions[0].placeholder + '" class="form-control" /></div>');
+        this.html(
+            '<div class="input-group input-group-sm">' +
+            '<input type="' + settings.searchOptions[0].type + '" id="' + inputId + '" placeholder="' + settings.searchOptions[0].placeholder + '" class="form-control" aria-describedby="' + id + '-sizing-addon" aria-label="..." />' +
+            '<div class="input-group-btn">' +
+            '<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' + settings.searchOptions[0].placeholder + ' <span class="caret"></span></button>' +
+            '<ul class="dropdown-menu">' +
+            '<li><span class="changeOption">' + settings.searchOptions[0].placeholder + '</span></li>' +
+            '</ul>' +
+            '</div>' +
+            '</div>');
+
+        $('.changeOption')
 
         $("#" + inputId).keypress(function (e) {
             var currentOption = 0;

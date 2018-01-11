@@ -12,17 +12,7 @@
     <script src="src/quickSearch.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
-            $('#QuickSearch').quickSearch({
-                searchOptions: [{
-                    url: "http://search.yahoo.com/search?p=",
-                    placeholder: "Yahoo Search",
-                    type: "number",
-                    icon: "glyphicon-heart",
-                    newWindow: true
-                }]
-            });
-
-            $('#QuickSearch2').quickSearch();
+            $('#QuickSearch').quickSearch();
         });
     </script>
 </head>
@@ -63,9 +53,6 @@
             </ul>
             <div class="navbar-nav">
                 <div id="QuickSearch" />
-            </div>
-            <div class="navbar-nav">
-                <div id="QuickSearch2" />
             </div>
         </div>
     </nav>
