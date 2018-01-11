@@ -18,19 +18,24 @@ $(function () {
 
         window.currentOption.push({ key: id, value: 0 });
 
-        var html = '<div class="input-group input-group-sm">' +
-            '<input type="' + settings.searchOptions[0].type + '" id="' + inputId + '" placeholder="' + settings.searchOptions[0].placeholder + '" class="form-control" aria-label="..." />' +
-            '<div class="input-group-btn">' +
-            '<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></button>' +
-            '<ul class="dropdown-menu dropdown-menu-right">';
+        var html =
+            '<div class="input-group input-group-sm">' +
+            '<input type="' + settings.searchOptions[0].type + '" id="' + inputId + '" placeholder="' + settings.searchOptions[0].placeholder + '" class="form-control" aria-label="..." />';
 
-        for (var i = 0; i < settings.searchOptions.length; i++) {
-            html += '<li><span class="changeOption" data-optionIndex="' + i + '">' + settings.searchOptions[i].placeholder + '</span></li>';
+        if (settings.searchOptions.length > 0) {
+            html +=
+                '<div class="input-group-btn">' +
+                '<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&nbsp;<span class="caret"></span></button>' +
+                '<ul class="dropdown-menu dropdown-menu-right">';
+
+            for (var i = 0; i < settings.searchOptions.length; i++) {
+                html += '<li><span class="changeOption" data-optionIndex="' + i + '">' + settings.searchOptions[i].placeholder + '</span></li>';
+            }
+
+            html += '</ul></div>';
         }
 
-        html += '</ul></div></div>';
-
-        this.html(html);
+        this.html(html + '</div>');
 
         $('.changeOption').click(function () {
             var optionIndex = $(this).attr('data-optionIndex');
