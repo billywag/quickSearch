@@ -1,0 +1,13 @@
+{
+    "name": "bootstrap-quicksearch",
+    "version": "1.0.0",
+    "bugs": {
+        "url": "https://github.com/billywag/quickSearch/issues",
+        "email": "billywag@gmail.com"
+    },
+    "license": "GPL-3.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/billywag/quickSearch.git"
+    }
+}
