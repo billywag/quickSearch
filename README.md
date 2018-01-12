@@ -3,7 +3,7 @@ Bootstrap Quick Search
 
 # Installation
 
-Installation is easy, with minimal dependencies. Only Twitter Bootstrap's CSS and JS are required.
+Installation is easy, with minimal dependencies. Only Twitter Bootstrap's and jQuery are required.
 
 ## Usage
 
@@ -13,7 +13,7 @@ Simply create a div with an id to be used by the plugin. Then call jquery functi
 $('#myDivId').quickSearch();
 ```
 
-You could also add some options to you control.
+You could also add some options to your control.
 
 ```js
 $('#myDivId').quickSearch({

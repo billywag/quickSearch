@@ -1,6 +1,6 @@
 {
     "name": "bootstrap-quicksearch",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "bugs": {
         "url": "https://github.com/billywag/quickSearch/issues",
         "email": "billywag@gmail.com"
@@ -9,5 +9,9 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/billywag/quickSearch.git"
+    },
+    "peerDependencies": {
+        "jquery": "1.9.1 - 3",
+        "bootstrap": "3.4.0"
     }
 }
