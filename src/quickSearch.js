@@ -31,7 +31,7 @@ $(function () {
                 '<ul class="dropdown-menu dropdown-menu-right">';
 
             for (var i = 0; i < settings.searchOptions.length; i++) {
-                html += '<li><span class="changeOption dropdown-item" data-optionIndex="' + i + '">' + settings.searchOptions[i].placeholder + '</span></li>';
+                html += '<li class="dropdown-item"><span class="changeOption" data-optionIndex="' + i + '">' + settings.searchOptions[i].placeholder + '</span></li>';
             }
 
             html += '</ul></div>';
